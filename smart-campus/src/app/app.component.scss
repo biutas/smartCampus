@@ -1,1 +1,27 @@
-@import url('../styles.scss')
+@import url("../styles.scss");
+.header {
+    box-shadow: 1px 4px 20px -10px #b9b9b9;
+    height: 8vh;
+    padding: 0 1rem;
+    img{
+        height: 5vh;
+    }
+    .search{
+        width: 30vw;
+        input{
+            width: 100%;
+            border: 0;
+            line-height: 8vh;
+            padding: 0 1rem;
+            outline: none;
+        }
+    }
+    .menu{
+        width: 30%;
+        ul{
+            list-style: none;
+            margin-bottom: 0;
+            padding-left: 0%;
+        }
+    }
+}

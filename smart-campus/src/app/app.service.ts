@@ -6,9 +6,22 @@ import { HttpClient } from '@angular/common/http';
 export class api {
   constructor(private http: HttpClient) { }
   
-  getRooms(){
-    return this.http.post('/api/getRooms',
-    {})
+  getCourses(start_time, end_time){
+    return this.http.post('/api/getCourses',
+    {
+      start_time: start_time,
+      end_time: end_time
+    })
+  }
+
+  getCourseSchedule(start_time, end_time, course, period){
+    return this.http.post('/api/getCourseSchedule',
+    {
+      start_time: start_time,
+      end_time: end_time,
+      course: course,
+      period: period
+    })
   }
 
 }

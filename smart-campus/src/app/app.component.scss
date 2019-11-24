@@ -1,6 +1,7 @@
 @import url("../styles.scss");
 .header {
-    box-shadow: 1px 4px 20px -10px #b9b9b9;
+    // box-shadow: 1px 4px 20px -10px #b9b9b9;
+    border-bottom: 1px solid #f7f7f7;
     height: 8vh;
     padding: 0 1rem;
     img{
@@ -22,6 +23,85 @@
             list-style: none;
             margin-bottom: 0;
             padding-left: 0%;
+            li{
+                line-height: 8vh;
+                padding: 0 .5rem;
+                cursor: pointer;
+                span{
+                    opacity: 0;
+                    width: 1.5rem;
+                    height: .2rem;
+                    background: #68d477;
+                    position: absolute;
+                    border-top-left-radius: 1rem;
+                    border-top-right-radius: 1rem;
+                }
+                &:hover{
+                    span{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+.schedule{
+    padding: 1rem;
+    .indice{
+        margin-left: (10rem + .5rem);
+        cursor: grab;
+        width: fit-content;
+        position: sticky;
+        top: 0;
+        background: #ffffff66;
+        z-index: 2;
+        backdrop-filter: blur(10px);
+        .hour{
+            width: 10vw;
+            border-right: 1px solid #ececec;
+            line-height: 3rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #8c8c8c;
+        }
+    }
+    .events{
+        border-bottom: 1px solid #f7f7f7;
+        // padding: .5rem 0;
+        .iconOuter{
+            min-width: 10rem;
+            max-width: 10rem;
+            height: 4rem;
+            border-right: 1px solid #f7f7f7;
+            position: sticky;
+            left: 0;
+            z-index: 3;
+            background: #ffffff66;
+            backdrop-filter: blur(10px);
+            .icon{
+                background: bisque;
+                min-width: 2.5rem;
+                max-width: 90%;
+                padding: 0 0.5rem;
+                // line-height: 2.5rem;
+                min-height: 2.5rem;
+                text-align: center;
+                border-radius: 3rem;
+                color: coral;
+            }
+        }
+        .timeline{
+            margin-left: .5rem;
+            .event{
+                min-height: 3.5rem;
+                background: #dbfff3;
+                border: 1px solid aquamarine;
+                padding: 0 .5rem;
+                border-radius: .3rem;
+                color: #1d7155;
+                position: absolute
+            }
         }
     }
 }

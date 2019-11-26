@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
   hours: any[] = [{'hour':8},{'hour':9},{'hour':10},{'hour':11},{'hour':12},{'hour':13},{'hour':14},{'hour':15},{'hour':16},{'hour':17},{'hour':18},{'hour':19},{'hour':20},{'hour':21},{'hour':22},{'hour':22},{'hour':22},{'hour':22},]
 
   ngOnInit(){ 
-    let start_time = moment().subtract(2,'day').hour(0).minute(0).seconds(0).unix()
-    let end_time = moment().subtract(2,'day').hour(23).minute(59).seconds(0).unix()
+    let start_time = moment().hour(0).minute(0).seconds(0).unix()
+    let end_time = moment().hour(23).minute(59).seconds(0).unix()
     this.api.getCourses(start_time, end_time).subscribe(courses => {
       let coursesList = JSON.parse(JSON.stringify(courses))
       coursesList.map(course => {        

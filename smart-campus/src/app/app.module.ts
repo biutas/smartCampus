@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgPipesModule } from 'ngx-pipes'
-
+import { registerLocaleData } from '@angular/common'
+import localePt from '@angular/common/locales/pt'
+import { LOCALE_ID } from '@angular/core';
+registerLocaleData(localePt, 'pt')
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +16,9 @@ import { NgPipesModule } from 'ngx-pipes'
     HttpClientModule,
     NgPipesModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: "pt" }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,47 +3,36 @@
         <div>
             <img src="../assets/ifsc_logo.png" alt="IFSC">
         </div>
-        <div class="search">
+        <!-- <div class="search">
             <input type="text" placeholder="O que você está procurando?">
-        </div>
+        </div> -->
         <div class="menu">
             <ul class="d-flex flex-row justify-content-between align-items-center">
-                <li class="d-flex flex-column justify-content-end align-items-center">
+                <li (click)="setTab('salas')" class="d-flex flex-column justify-content-end align-items-center">
                     Salas
-                    <span></span>
+                    <span [ngClass]="{active: tab == 'salas'}"></span>
                 </li>
-                <li class="d-flex flex-column justify-content-end align-items-center">
-                    Eventos
-                    <span></span>
+                <li (click)="setTab('pesquisa')" class="d-flex flex-column justify-content-end align-items-center">
+                    Sala de pesquisa
+                    <span [ngClass]="{active: tab == 'pesquisa'}"></span>
                 </li>
-                <li class="d-flex flex-column justify-content-end align-items-center">
+                <li (click)="setTab('incidentes')" class="d-flex flex-column justify-content-end align-items-center">
                     Incidentes
-                    <span></span>
+                    <span [ngClass]="{active: tab == 'incidentes'}"></span>
                 </li>
             </ul>
         </div>
     </div>
 
     <!-- Salas -->
-    <div class="schedule w-100">
-        <!-- 
-            Filtros
-            * Por curso
-            * Por sala
-            * Data inicial
-            * Data final
-        -->
-        <!-- <div>
-            <select name="curso" id="curso">
-                <option *ngFor="let sala of salas" value="sala.curso">{{sala.curso}}</option>
-            </select> 
-        </div> -->
+    <div *ngIf="tab == 'salas'" class="schedule w-100">
         <!-- Indice -->
         <div class="d-flex flex-row justify-content-center align-items-center">
-            <div>
-
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                <span class="setDay" tabindex="0" (click)="setDay(-1)"><</span>
+                <p class="m-1">{{today | date:'fullDate'}}</p>
+                <span class="setDay" tabindex="0" (click)="setDay(1)">></span>
             </div>
-            <p>{{today}}</p>
         </div>
         <div class="indice d-flex flex-row align-items-center"> 
             <div *ngFor="let i of hours" class="hour d-flex flex-column justify-content-center align-items-center">
@@ -62,4 +51,10 @@
             </div>
         </div>
     </div>
+
+    <div *ngIf="tab == 'pesquisa'">
+        pesquisa
+    </div>
+
+
 </div>

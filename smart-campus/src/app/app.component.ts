@@ -8,8 +8,6 @@ import 'moment/locale/pt-br';
   styleUrls: ['./app.component.scss']
 })
 
-
-
 export class AppComponent implements OnInit {
 
   constructor(private api:api) { 
@@ -17,12 +15,17 @@ export class AppComponent implements OnInit {
   }
   title = 'smart-campus';
   courses: any[] = []
-  today = moment().subtract(2,'day').format('LL')
+  today = moment()
   hours: any[] = [{'hour':8},{'hour':9},{'hour':10},{'hour':11},{'hour':12},{'hour':13},{'hour':14},{'hour':15},{'hour':16},{'hour':17},{'hour':18},{'hour':19},{'hour':20},{'hour':21},{'hour':22},{'hour':22},{'hour':22},{'hour':22},]
+  tab = 'salas'
 
   ngOnInit(){ 
-    let start_time = moment().hour(0).minute(0).seconds(0).unix()
-    let end_time = moment().hour(23).minute(59).seconds(0).unix()
+    this.search()
+  }
+
+  search(){
+    let start_time = moment(this.today).hour(0).minute(0).seconds(0).unix()
+    let end_time = moment(this.today).hour(23).minute(59).seconds(0).unix()
     this.api.getCourses(start_time, end_time).subscribe(courses => {
       let coursesList = JSON.parse(JSON.stringify(courses))
       coursesList.map(course => {        
@@ -38,8 +41,16 @@ export class AppComponent implements OnInit {
           })
       })
       this.courses = coursesList
-      console.log(this.courses)
     })
+  }
+
+  setDay(operator){
+    this.today = moment(this.today).add(operator,'day')  
+    this.search()
+  }
+
+  setTab(tab){
+    this.tab = tab
   }
 }
 

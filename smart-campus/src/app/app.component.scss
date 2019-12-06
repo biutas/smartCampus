@@ -35,6 +35,9 @@
                     position: absolute;
                     border-top-left-radius: 1rem;
                     border-top-right-radius: 1rem;
+                    &.active{
+                        opacity: 1;
+                    }
                 }
                 &:hover{
                     span{
@@ -47,6 +50,22 @@
 }
 .schedule{
     padding: 1rem;
+    .setDay{
+        font-size: 1.3rem;
+        padding: 0 1rem;
+        cursor: pointer;
+        border: 1px solid #7fffd4;
+        border-radius: 2rem;
+        color: #00d08a;
+        line-height: calc(2rem + .6rem);
+        font-family: poppins;
+        outline: none;
+        transition: all .3s ease ;
+        &:hover{
+            transition: all .3s ease ;
+            background: #dbfff3;
+        }
+    }
     .indice{
         margin-left: (10rem + .5rem);
         cursor: grab;

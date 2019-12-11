@@ -20,7 +20,7 @@ app.use(function(req, res) {
     res.sendFile(path.join(__dirname, '/smart-campus/dist/smart-campus', 'index.html'));
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Aberto na porta 3000!');
 });
 

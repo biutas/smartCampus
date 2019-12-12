@@ -3,9 +3,6 @@
         <div>
             <img src="../assets/ifsc_logo.png" alt="IFSC">
         </div>
-        <!-- <div class="search">
-            <input type="text" placeholder="O que você está procurando?">
-        </div> -->
         <div class="menu">
             <ul class="d-flex flex-row justify-content-between align-items-center">
                 <li (click)="setTab('salas')" class="d-flex flex-column justify-content-end align-items-center">
@@ -52,8 +49,13 @@
         </div>
     </div>
 
-    <div *ngIf="tab == 'pesquisa'">
-        pesquisa
+    <div *ngIf="tab == 'pesquisa'" class="computers d-flex flex-row flex-wrap justify-content-center align-items-start">
+        <div class="computer m-3 d-flex flex-column justify-content-center align-items-center" *ngFor="let computer of computers">
+            <img class="icon" src="../assets/coding.svg" alt="Computador">
+            {{computer.idPc}}
+            <div *ngIf="computer.disponivel" class="disponivel">Disponivel</div>
+            <div *ngIf="!computer.disponivel" class="indisponivel">indisponivel</div>
+        </div>
     </div>
 
 

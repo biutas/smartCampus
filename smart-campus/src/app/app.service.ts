@@ -24,5 +24,11 @@ export class api {
     })
   }
 
+  getResearchRoom(){
+    return this.http.get('https://researchroom-backend.herokuapp.com/computers')
+  }
+
+  
+
 }
 

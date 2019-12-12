@@ -124,3 +124,20 @@
         }
     }
 }
+.computers{
+    .computer{
+        .icon{
+            height: 3rem;
+        }
+        .disponivel{
+            border-radius: 1rem;
+            background: #73ff73;
+            padding: .2rem 1rem;
+        }
+        .indisponivel{
+            border-radius: 1rem;
+            background: #ff7373;
+            padding: .2rem 1rem;
+        }
+    }
+}

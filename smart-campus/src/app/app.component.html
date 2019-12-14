@@ -13,9 +13,9 @@
                     Sala de pesquisa
                     <span [ngClass]="{active: tab == 'pesquisa'}"></span>
                 </li>
-                <li (click)="setTab('incidentes')" class="d-flex flex-column justify-content-end align-items-center">
-                    Incidentes
-                    <span [ngClass]="{active: tab == 'incidentes'}"></span>
+                <li (click)="setTab('menu')" class="d-flex flex-column justify-content-end align-items-center">
+                    Cardápio
+                    <span [ngClass]="{active: tab == 'menu'}"></span>
                 </li>
             </ul>
         </div>
@@ -58,5 +58,22 @@
         </div>
     </div>
 
+    <div *ngIf="tab == 'menu'" class="mt-5 menu d-flex flex-row justify-content-start align-items-center w-100">
+        <!-- {"id":68,"dia":18,"mes":12,"ano":2019,"primeiroPrato":"Arroz Branco e Integral","segundoPrato":"Feijão Carioca","terceiroPrato":"Carne moída com ovos","quartoPrato":"Fricassê de Frango","quintoPrato":"Legumes ao forno","sextoPrato":"Farofa Crocante","setimoPrato":"Saladas"} -->
+        <div *ngFor="let menu of menu | orderBy: ['ano','mes','dia']" class="d-flex flex-column justify-content-start align-items-center card m-2 p-2 col-md-2">
+            <div>
+                {{menu.dia}}/{{menu.mes}}/{{menu.ano}}
+            </div>
+            <hr/>
+            <ul>
+                <li>{{menu.primeiroPrato}}</li>
+                <li>{{menu.segundoPrato}}</li>
+                <li>{{menu.terceiroPrato}}</li>
+                <li>{{menu.quartoPrato}}</li>
+                <li>{{menu.quintoPrato}}</li>
+            </ul>
+
+        </div>
+    </div>
 
 </div>

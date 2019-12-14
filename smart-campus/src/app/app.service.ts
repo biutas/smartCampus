@@ -28,6 +28,10 @@ export class api {
     return this.http.get('https://researchroom-backend.herokuapp.com/computers')
   }
 
+  getMenu(){
+    return this.http.get('https://cardapio-ifsc.herokuapp.com/api/cardapios')
+  }
+
   
 
 }
